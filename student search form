@@ -1,0 +1,95 @@
+Search.js
+import React, { useState } from "react";
+import logo from './logo.svg';
+import "./Search.css";
+function Search() {
+  const list = [
+    "Y20CS021",
+    "Y20CS091",
+    "Y20CS171",
+    "Y20CE021",
+    "Y20CE091",
+    "Y20CE171",
+    "Y20ECE021",
+    "Y20ECE091",
+    "Y20ECE171",
+    "Y20IT021",
+    "Y20IT091",
+    "Y20IT171",
+    "Ratna Babu",
+    "Rishi Babu",
+    "Deepak",
+    "Jyothi",
+    "Rama Raju",
+    "Sunil",
+    "Sitha",
+    "Ramana",
+    "Ratna Raju"
+  ];
+  const [filterList, setFilterList] = useState(list);
+  const handleSearch = (event) => {
+    if (event.target.value === "") {
+      setFilterList(list);
+      return;
+    }
+    const filteredValues = list.filter(
+      (item) =>
+        item.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+    );
+    setFilterList(filteredValues);
+  };
+  return (
+    <div className="app11">
+      <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      </header>
+      <p >STUDENT INFORMATION  SEARCH!</p> </div>
+      <div>
+        <b>Search: <input  name="query" type="text" onChange={handleSearch} />
+      </b></div>
+      {filterList &&
+        filterList.map((item, index) => (
+          <div key={index}>{item}</div> //Display each item
+        ))}
+    </div>
+  );
+}
+export default Search;
+
+Search.css
+.app11 {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  b{
+    color:red;
+    font-size:2pc;
+  }
+  p{
+    color:yellowgreen;
+  }
+  input {
+    padding: 1%;
+    width: 100%;
+    margin: 1% 2%;
+  }
+Index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import Search from './Search';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Search/>
+  </React.StrictMode>
+);
+reportWebVitals();
