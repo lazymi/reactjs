@@ -1,0 +1,16 @@
+Second.js
+exports.date=function(){
+    return new Date().getFullYear();
+}
+
+leap.js
+
+const year=require('./second');
+console.log('Current Year is',year.date());
+if(year.date()%400==0 || (year.date()%4==0&& year.date()%100!=0)){
+    console.log("Leap Year");
+}
+else{
+    console.log("Not leap Year");
+}
+
