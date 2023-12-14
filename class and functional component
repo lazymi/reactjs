@@ -1,0 +1,41 @@
+ClassComp.js
+
+import React from 'react';
+class Class1 extends React.Component{
+    render(){
+        return (<h1 style={{textAlign:"center",backgroundColor:"yellow",color:"green"}}>My First Class Component</h1>);
+    }
+}
+
+export default Class1;
+
+FunctionalComp.js
+
+function Func1(){
+    return (
+<h1 
+        style={{
+          color:"red",
+          backgroundColor:"yellow",
+          textAlign:"center"
+        }}
+>My first Function Component</h1>
+      );
+}
+export default Func1;
+
+Index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+import Func1 from './FunctionalComp.js';
+import Class1 from './ClassComp.js'
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<React.StrictMode>
+<Func1/>
+<Class1/>
+</React.StrictMode>
+);
+reportWebVitals();
