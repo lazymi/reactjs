@@ -1,0 +1,49 @@
+App.js
+import rvr from './rvr.jpg';
+import './App.css';
+
+function App() {
+  return (
+<div className="App">
+<header className="App-header">
+<img src={rvr} className="App-logo" alt="rvr" />
+<p>
+          Welcome to My First ReactJS Application
+</p>
+</header>
+</div>
+  );
+}
+export default App;
+App.css
+.App {
+  text-align: center;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+Index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<React.StrictMode>
+<App />
+</React.StrictMode>
+);
+reportWebVitals();
