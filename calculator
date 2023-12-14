@@ -1,0 +1,104 @@
+Calculator.js
+import React, { useState } from 'react';
+import './Calculator.css';
+
+function Calculator() {
+  const [value, setValue] = useState('');
+  return (
+    <div className="container">
+      <div className="calculator">
+        <form action="">
+          <div className='display'>
+            <input type= "text" value={value}/>
+            </div>
+          <div>
+            <input type="button" value="AC" onClick={e => setValue('')}/>
+            <input type="button" value="DE" onClick={e => setValue(value.slice(0, -1))}/>
+            <input type="button" value="." onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="/" onClick={e => setValue(value + e.target.value)}/>
+          </div>
+          <div>
+            <input type="button" value="7" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="8" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="9" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="*" onClick={e => setValue(value + e.target.value)}/>
+          </div>
+          <div>
+            <input type="button" value="4" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="5" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="6" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="+" onClick={e => setValue(value + e.target.value)}/>
+          </div>
+          <div>
+            <input type="button" value="1" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="2" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="3" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="-" onClick={e => setValue(value + e.target.value)}/>
+          </div>
+          <div>
+            <input type="button" value="00" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="0" onClick={e => setValue(value + e.target.value)}/>
+            <input type="button" value="=" className='equal' onClick={e => setValue(eval(value))}/>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+export default Calculator;
+
+Calculator.css
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(140deg, rgb(255, 255, 255), rgb(255, 255, 255));
+  }
+  .calculator {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(211, 211, 211);
+  }
+  form input {
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+    background-color: rgb(216, 130, 0);
+    margin: 2px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  form input[type="button"]:hover {
+    background-color: rgb(255, 94, 0);
+  }
+  form .display {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0px 15px 0px;
+  }
+  form .display input {
+    text-align: right;
+    font-size: 40px;
+    padding: 5px 10px;
+    background-color: rgb(64, 64, 64);
+  }
+  form input.equal{
+    width: 123px;
+  }
+Index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import Calculator from './Calculator.js';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Calculator/>
+  </React.StrictMode>
+);
+reportWebVitals();
