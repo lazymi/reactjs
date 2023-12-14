@@ -1,0 +1,87 @@
+Router1.js
+import "./Router1.css";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
+import Home from "./Comp/Home";
+import About from "./Comp/About";
+import ContactUs from "./Comp/ContactUs";
+
+function Router1() {
+    return (
+        <>
+            <Router>
+                <Routes>
+                    <Route
+                        exact
+                        path="/"
+                        element={<Home />}
+                    />
+                    <Route
+                        path="/about"
+                        element={<About />}
+                    />
+                    <Route
+                        path="/contactus"
+                        element={<ContactUs />}
+                    /> 
+                    <Route
+                        path="*"
+                        element={<Navigate to="/" />}
+                    />
+                </Routes>
+            </Router>
+        </>
+    );
+}
+export default Router1;
+
+Router1.css
+.App {
+  text-align: center;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #060c01;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #61dafb;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+Index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import Router1 from './Router1';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Router/>
+  </React.StrictMode>
+);
+reportWebVitals();
