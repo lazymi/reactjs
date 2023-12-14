@@ -1,0 +1,74 @@
+Counter.js
+import React from "react";
+import "./Counter.css";
+class Counter1 extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            counter:0
+        };
+    }
+    Incr=()=>{
+        this.setState({
+            counter:this.state.counter+1
+        });
+    };
+    Decr=()=>{
+        this.setState({
+            counter:this.state.counter-1
+        });
+    }
+    render(){
+        const mystyle={
+            textAlign:"center"
+        }
+        return(
+<center>
+<div className="main" >
+<h1 style={mystyle}>Counter Application : ReactJS</h1>
+<h2 style={mystyle}>Counter = {this.state.counter}</h2>
+<div style={mystyle}><button className="button" onClick={this.Incr} >Increment</button>
+<button className="button" onClick={this.Decr}>Decrement</button>
+</div>
+</div>
+</center>
+        )
+    }
+}
+export default Counter1;
+Counter.css
+.main{
+    border-radius: 8px;
+    font-size: 18px;
+    background-color: rgba(197, 242, 244, 0.979);
+    width: 700px;
+    height: 230px;
+    border-radius: 10px;
+    color: rgb(21, 20, 22);
+    margin: 140px;
+    padding: 20px;
+}
+.button{
+    color: rgb(238, 247, 247);
+    background-color: blue;
+    text-align: center;
+    margin-right: 10px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    border-radius: 6px;
+    border: 2px solid blue;
+}
+
+Index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import Counter from './ Counter ';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Counter/>
+  </React.StrictMode>
+);
+reportWebVitals();
