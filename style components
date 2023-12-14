@@ -1,0 +1,42 @@
+Style.js
+import React from 'react';
+import './style1.css';
+const style2={
+    fontSize:'50px',
+    textAlign: 'center',
+    backgroundColor:"yellow",
+    color: 'red'
+};
+class Class2 extends React.Component{
+    render(){
+        return (
+<div>
+<p className='style1'>This is the example of external CSS</p>
+<p style={style2}>This is the example of Inline CSS</p>
+</div>
+        );
+    }
+}
+export default Class2;
+
+Style1.css 
+.style1
+{
+    font-size: 60px;
+    text-align: center;
+    background-color: aqua;
+    color: rgb(71, 21, 187);
+}
+
+Index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import  Class2 from './Class2';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Class2/>
+  </React.StrictMode>
+);
+reportWebVitals();
